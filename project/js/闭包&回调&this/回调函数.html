@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function demo(a, b) {
+        // 根据自己的业务需求实现功能
+        // ....
+        console.log(a)
+        a()
+      }
+
+      // demo(1, 2)
+      // demo(true, false)
+      // demo('aaa', 'false')
+      // demo(['aa', 'bb'], null)
+
+      // 回调函数，指的就是把一个函数作为参数传入到另一个函数中，入参的函数，就是回调函数
+      function fn() {
+        console.log('我是fn函数')
+      }
+
+      demo(fn)
+
+      setTimeout(function () {})
+      dom.addEventListener('click', function () {})
+    </script>
+  </body>
+</html>

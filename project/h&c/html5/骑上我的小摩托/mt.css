@@ -1,0 +1,32 @@
+.ce1{
+    background-image: url(../../摩托车/moto1.jpeg);
+    width: 1600px;
+    height: 900px;
+    background-attachment: fixed;
+}
+.ce2{
+    background-image: url(../../摩托车/moto2.jpeg);
+    width: 1600px;
+    height: 900px;
+    background-attachment: fixed;
+}
+.ce3{
+    background-image: url(../../摩托车/moto3.jpeg);
+    width: 1600px;
+    height: 900px;
+    background-attachment: fixed;
+}
+.ce4{
+    background-image: url(../../摩托车/moto4.jpeg);
+    width: 1600px;
+    height: 900px;
+    background-attachment: fixed;
+}
+.mtc{
+    line-height: 100px;
+    font-size: 100px;
+    font-family:楷体;
+    background-color: aqua;
+    text-align: center;
+
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>无标题文档</title>
+</head>
+
+<body>
+  <p>
+    请选择喜欢的书籍：
+    <input type="radio" name="book" value="0" onclick="books()">我和狗狗一起活下去
+    <input type="radio" name="book" value="1" onclick="books()">灰霾来了怎么办
+    <div>
+
+      <img src="" alt="" title="" id="imageid">
+      <span></span>
+    </div>
+  </p>
+  <script>
+    function books() {
+      var inp = document.getElementsByTagName('input');
+      var img = document.getElementsByTagName('img')[0];
+      var span = document.getElementsByTagName('span')[0];
+      if (inp[0].checked) {
+        // img.setAttribute('src', './images/dog.jpg');
+        imageid.src = './images/dog.jpg';
+        span.innerHTML = '我和狗狗一起活下来';
+        span.style.color = 'aqua';
+      }
+      if (inp[1].checked) {
+        // img.setAttribute('src', './images/mai.jpg');
+        imageid.src = './images/mai.jpg';
+        span.innerHTML = '灰霾来了怎么办？';
+        span.style.color = 'aqua';
+      }
+    }
+  </script>
+</body>
+
+</html>

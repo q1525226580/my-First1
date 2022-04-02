@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div{
+    width: 250px;
+    height: 260px;
+    margin: 0 auto;
+    border: 1px solid #999;
+    border-radius: 8px;
+    background-color: #fff;
+    background-image: linear-gradient(#79ccfb,white 20%) ;
+}
+h1{
+    background-image: url(./bg.gif);
+    background-repeat: no-repeat;
+    padding: 0px 0px 0px 40px;
+    font-size: 14px;
+    height: 40px;
+    color: white;
+    background-origin: padding-box;
+    line-height: 35px;
+}
+li{
+    list-style: none;
+    background-image: url(./dotBg.gif);
+    padding:  0px 0px 0px 20px;
+    font-size: 18px;
+}
+li a{
+    text-decoration: none;
+    color: rgb(137,143,151);
+    font-size: 17px;
+    line-height: 30px;
+}
+a:hover{
+    color: red;
+}

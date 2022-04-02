@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: relative;
+}
+@font-face{
+    font-family: 'xx';
+    src: url(../iconfont/iconfont.css);
+    src: url(../iconfont/iconfont.js);
+    src: url(../iconfont/iconfont.json);
+    src: url(../iconfont/iconfont.ttf);
+    src: url(../iconfont/iconfont.woff);
+    src: url(../iconfont/iconfont.woff2);
+}
+.aaa .iconfont{
+    font-size: 72px;
+    line-height: 120px;
+}
+.aaa{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 3px solid #999;
+    border-radius: 100%;
+    font-family: 'xx';
+    text-align: center;
+    font-size: 36px;
+    color: red;
+}
+.a{
+    z-index: 100;
+    margin: 400px 500px;
+    background-color: yellow;
+}
+.b{
+    z-index: 500;
+    margin: 400px 650px;
+    background-color: aqua;
+}
+.c{
+    z-index: 200;
+    margin: 400px 800px;
+    background-color: mistyrose;
+}
+.d{
+    z-index: 300;
+    margin: 400px 950px;
+    background-color: bisque;
+}
+.e{
+    z-index: 400;
+    margin: 400px 1100px;
+    background-color: chartreuse;
+}
+.aaa:hover{
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: all 2s linear;
+}

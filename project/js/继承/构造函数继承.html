@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      构造函数继承：
+      
+      call 
+      apply
+      这两个方法的作用和使用
+      继承
+    
+      this:函数运行时，函数内部生成的一个指针对象，在不同的场景下使用时，this的指向是不同的。
+      能联想到 this的指向是可以更改的。
+      call / apply 就是为了修改函数this指向而存在的
+      call / apply 是挂载在函数的原型对象上的
+
+      区别：
+      在与传参形式不同
+      call(target,arg1,arg2,arg3.....)
+      apply(target,[arg1,arg2,arg3.....])
+    */
+
+      /* 
+      var likui = {
+        weight: '200kg',
+        height: '200cm',
+      }
+
+      function demo() {
+        console.log(this)
+      }
+      // demo.call(likui)
+      demo.apply(likui)
+
+      console.log('=========demo的构造函数========')
+      console.log(demo.constructor) //Function   函数的构造函数Function   数组的构造函数Array
+      console.log('=========demo的原型对象========')
+      // console.dir() 展开对象
+      console.dir(demo.constructor.prototype)
+      console.dir(demo.__proto__)
+       */
+
+      function Parent(m, c) {
+        this.money = m
+        this.car = c
+      }
+
+      function children() {
+        // Parent.call(this, 9999999, '🚜')
+        Parent.apply(this, [88888, '🚗'])
+        this.girlF = true
+      }
+
+      var c1 = new children()
+      console.log(c1)
+      console.log(c1.car)
+    </script>
+
+    <script>
+      var a = 'haha'
+      var obj = {}
+      // obj.a = 0
+      obj[a] = 0
+      console.log(obj)
+    </script>
+  </body>
+</html>

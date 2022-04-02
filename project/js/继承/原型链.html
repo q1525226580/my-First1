@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person() {}
+      Object.prototype.say = function () {
+        console.log('我是Object的原型对象上的say方法')
+      }
+
+      Person.prototype.say = function () {
+        console.log('我是Person的原型对象上的say方法')
+      }
+
+      var per1 = new Person()
+      per1.say = function () {
+        console.log('我是per1对象上的say方法')
+      }
+
+      per1.say()
+    </script>
+  </body>
+</html>

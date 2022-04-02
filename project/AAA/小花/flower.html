@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小花</title>
+    <style>
+        .big{
+            width:400px;
+            height:400px;
+            margin:300px auto;
+            position:relative;
+        }
+        .big::before{
+            content:"";
+            display:block;
+            width:400px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: aqua;
+            z-index: 5;
+            position: relative;
+        }
+        .small{
+            background-color: aquamarine;
+            border-radius: 50%;
+            width: 0px;
+            height: 0px;
+        }
+        .small1{
+            position: absolute；
+            left:0px；
+            top: 200px；
+            animation: small1 2s linear forwards；
+        }
+        @keyframes smaLL1 {
+            108% {
+                left: -200px；
+                top: -200px；
+                width: 400px；
+                height:400px；
+            }
+        }
+        .small2 {
+            position: absolute；
+            left: 200px；
+            top: epx；
+            animation: sma112 2s Linear forwards 2s；
+        @keyframes smaLL2 {
+            10o% {
+            left: 200px；
+            top: -200px；
+            width: 40opx；
+            height: 40epx；
+        }
+        .smal13 {
+        position: absolute;left: 400px;
+        top: 200px;
+        animation: small3 2s Linear forwards 4s;
+        @keyframes smaLL3 {
+            100% {
+            left: 200px;
+            top: 200px;
+            width: 400px;
+            height: 400px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="big">
+        <div class="small small1"></div>
+        <div class="small small2"></div>
+        <div class="small small3"></div>
+        <div class="small small4"></div>
+    </div>
+</body>
+</html>

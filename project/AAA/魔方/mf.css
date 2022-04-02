@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: black;
+}
+.content {
+    margin: 300px 800px;
+    perspective: 1000px;
+    /* 视距 */
+}
+.box {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    color: #fffdf5;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 200px;
+    transform-style: preserve-3d;
+    /* 默认 2D */
+    transition: transform 1s;
+    /*transform动画效果*/
+    /*不让鼠标选中文字*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.box>div {
+    width: 200px;
+    height: 200px;
+    /* border: 1px solid #FF2869; */
+    position: absolute;
+    background-color: #333;
+    opacity: 0.5;
+    transition: transform 0.4s;
+    /*transform动画效果*/
+}
+
+.box .out-front {
+    transform: translateZ(100px);
+    background: url(./01.png);
+    background-size: cover;
+}
+
+.box .out-back {
+    transform: translateZ(-100px) rotateY(180deg);
+    background: url(./02.jpeg);
+    background-size: cover;
+}
+
+.box .out-left {
+    transform: translateX(-100px) rotateY(-90deg);
+    background: url(./03.jpeg);
+    background-size: cover;
+}
+
+.box .out-right {
+    transform: translateX(100px) rotateY(90deg);
+    background: url(./04.jpeg);
+    background-size: cover;
+}
+
+.box .out-top {
+    transform: translateY(-100px) rotateX(90deg);
+    background: url(./05.jpeg);
+    background-size: cover;
+}
+
+.box .out-bottom {
+    transform: translateY(100px) rotateX(-90deg);
+    background: url(./06.png);
+    background-size: cover;
+}
+
+.box>span {
+    display: block;
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid #FF2869; */
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.box .in-front {
+    transform: translateZ(50px);
+    background: url(./01.png);
+    background-size: cover;
+}
+
+.box .in-back {
+    transform: translateZ(-50px) rotateY(180deg);
+    background: url(./02.jpeg);
+    background-size: cover;
+}
+
+.box .in-left {
+    transform: translateX(-50px) rotateY(-90deg);
+    background: url(./03.jpeg);
+    background-size: cover;
+}
+
+.box .in-right {
+    transform: translateX(50px) rotateY(90deg);
+    background: url(./04.jpeg);
+    background-size: cover;
+}
+
+.box .in-top {
+    transform: translateY(-50px) rotateX(90deg);
+    background: url(./05.jpeg);
+    background-size: cover;
+}
+
+.box .in-bottom {
+    transform: translateY(50px) rotateX(-90deg);
+    background: url(./06.png);
+    background-size: cover;
+}

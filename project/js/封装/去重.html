@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //普通方法
+        function delRepeat(arr) {
+            var sub = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (sub.indexOf(arr[i]) == -1) {
+                    sub.push(arr[i]);
+                }
+            }
+            return sub;
+        }
+        console.log(delRepeat([1, 23, 3, 4, 6, 3, 12, 6, 7, 8, 7, 10]));
+
+        //给数组原型添加方法
+        Array.prototype.delRepeat = function () {
+            var sub = [];
+            for (var i = 0; i < this.length; i++) {
+                if (sub.indexOf(this[i]) == -1) {
+                    sub.push(this[i]);
+                }
+            }
+            return sub;
+        }
+        console.log([1, 23, 3, 4, 6, 3, 12, 6, 7, 8, 7, 10].delRepeat());
+    </script>
+</body>
+
+</html>

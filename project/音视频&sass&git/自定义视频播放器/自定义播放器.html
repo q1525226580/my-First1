@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        and,
+        address,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video,
+        input,
+        textarea,
+        select {
+            background: transparent;
+            border: 0;
+            font-size: 100%;
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            vertical-align: baseline
+        }
+        
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+        
+        body {
+            line-height: 1.5;
+        }
+        
+        abbr[title],
+        dfn[title] {
+            border-bottom: 1px dotted;
+            cursor: help;
+        }
+        
+        blockquote,
+        q {
+            quotes: none;
+        }
+        
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: none;
+        }
+        
+        del {
+            text-decoration: line-through;
+        }
+        
+        hr {
+            background: transparent;
+            border: 0;
+            clear: both;
+            color: transparent;
+            height: 1px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        mark {
+            background-color: #ffffb3;
+            font-style: italic;
+        }
+        
+        input,
+        select {
+            vertical-align: middle;
+        }
+        
+        ins {
+            background-color: red;
+            color: white;
+            text-decoration: none;
+        }
+        
+        ol,
+        ul {
+            list-style: none;
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .jp-video {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            position: relative;
+            -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
+            background: #000;
+        }
+        
+        .jp-video-360p {
+            width: 570px;
+            margin: 100px auto;
+        }
+        
+        .jp-video-full {
+            width: 480px;
+            height: 270px;
+            position: static !important;
+            position: relative;
+        }
+        
+        .jp-video-full {
+            top: 0;
+            left: 0;
+            position: fixed !important;
+            position: relative;
+            /* Rules for IE6 (full-screen) */
+            overflow: hidden;
+            z-index: 1000;
+        }
+        
+        .jp-video-full .jp-gui {
+            position: fixed !important;
+            position: static;
+            /* Rules for IE6 (full-screen) */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+        }
+        
+        .jp-video-full .jp-interface {
+            position: absolute !important;
+            position: relative;
+            /* Rules for IE6 (full-screen) */
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .jp-interface {
+            position: relative;
+            width: 100%;
+            height: 35px;
+            background-image: -webkit-linear-gradient(top, rgb(242, 242, 242), rgb(209, 209, 209));
+            background-image: -moz-linear-gradient(top, rgb(242, 242, 242), rgb(209, 209, 209));
+            background-image: -o-linear-gradient(top, rgb(242, 242, 242), rgb(209, 209, 209));
+            background-image: -ms-linear-gradient(top, rgb(242, 242, 242), rgb(209, 209, 209));
+            background-image: linear-gradient(top, rgb(242, 242, 242), rgb(209, 209, 209));
+            -webkit-box-shadow: inset 0px 1px 0px #f7f7f7, inset 0px -1px 0px #e2e2e2;
+            -moz-box-shadow: inset 0px 1px 0px #f7f7f7, inset 0px -1px 0px #e2e2e2;
+            box-shadow: inset 0px 1px 0px #f7f7f7, inset 0px -1px 0px #e2e2e2;
+        }
+        
+        div.jp-controls-holder {
+            clear: both;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        a.jp-play,
+        a.jp-pause {
+            width: 40px;
+            height: 35px;
+            float: left;
+            text-indent: -9999px;
+            outline: none;
+        }
+        
+        a.jp-play {
+            background: url(images/sprite.png) 0 0 no-repeat;
+        }
+        
+        a.jp-pause {
+            background: url(images/sprite.png) -40px 0 no-repeat;
+            display: none;
+        }
+        
+        #separator {
+            background-image: url(images/separator.png);
+            background-repeat: no-repeat;
+            width: 2px;
+            height: 35px;
+            float: left;
+            margin-top: 7px;
+            margin-right: 10px;
+        }
+        
+        .jp-progress {
+            background: #706d6d;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0px 1px 4px rgba(0, 0, 0, .4), 0px 1px 0px rgba(255, 255, 255, .4);
+            -moz-box-shadow: inset 0px 1px 4px rgba(0, 0, 0, .4), 0px 1px 0px rgba(255, 255, 255, .4);
+            box-shadow: inset 0px 1px 4px rgba(0, 0, 0, .4), 0px 1px 0px rgba(255, 255, 255, .4);
+            width: 280px;
+            height: 10px;
+            float: left;
+            margin-top: 13px;
+        }
+        
+        .jp-seek-bar {
+            width: 0px;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .jp-seeking-bg {
+            background: #575555;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        
+        .jp-play-bar {
+            background: url(images/play-bar.png) left repeat-x;
+            width: 0px;
+            height: 10px;
+            position: relative;
+            z-index: 9999;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        
+        .jp-play-bar span {
+            position: absolute;
+            top: -3px;
+            right: -12px;
+            background: url(images/handle.png) no-repeat center;
+            width: 16px;
+            height: 17px;
+        }
+        
+        .jp-current-time,
+        .jp-duration {
+            font-size: 11px;
+            font-family: Arial;
+            color: #444444;
+            margin-top: 13px;
+            line-height: 100%;
+            float: left;
+        }
+        
+        .jp-current-time {
+            float: left;
+            display: inline;
+        }
+        
+        .jp-duration {
+            float: left;
+            display: inline;
+            text-align: right;
+        }
+        
+        .jp-video .jp-current-time {
+            margin-left: 10px;
+        }
+        
+        .jp-video .jp-duration {
+            margin-right: 10px;
+        }
+        
+        .time-sep {
+            float: left;
+            margin: 13px 3px 0 3px;
+            font-size: 11px;
+            font-family: Arial;
+            line-height: 100%;
+            color: #444444;
+        }
+        
+        a.jp-mute,
+        a.jp-unmute {
+            text-indent: -9999px;
+            float: left;
+            height: 35px;
+            outline: none;
+            width: 38px;
+        }
+        
+        .jp-mute {
+            background: url(images/sprite.png) -80px 0 no-repeat;
+        }
+        
+        a.jp-unmute {
+            background: url(images/sprite.png) -115px 0 no-repeat;
+            display: none;
+        }
+        
+        .jp-volume-bar {
+            float: left;
+            margin-top: 13px;
+            margin-right: 10px;
+            overflow: hidden;
+            width: 100px;
+            height: 10px;
+            cursor: pointer;
+            background: #706d6d;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0px 1px 4px rgba(0, 0, 0, .4), 0px 1px 0px rgba(255, 255, 255, .4);
+            -moz-box-shadow: inset 0px 1px 4px rgba(0, 0, 0, .4), 0px 1px 0px rgba(255, 255, 255, .4);
+            box-shadow: inset 0px 1px 4px rgba(0, 0, 0, .4), 0px 1px 0px rgba(255, 255, 255, .4);
+        }
+        
+        .jp-volume-bar-value {
+            background: #706d6d;
+            width: 0px;
+            height: 10px;
+            position: relative;
+            min-width: 11px;
+        }
+        
+        .jp-volume-bar-value span {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            background: url(images/volume.png) no-repeat center;
+            width: 11px;
+            height: 10px;
+        }
+        
+        .jp-full-screen {
+            background: url(images/sprite.png) -150px 0 no-repeat;
+            float: left;
+            width: 40px;
+            height: 35px;
+            text-indent: -9999px;
+            margin-left: -10px;
+            outline: none;
+        }
+        
+        .jp-restore-screen {
+            background: url(images/sprite.png) -150px 0 no-repeat;
+            float: left;
+            width: 40px;
+            height: 35px;
+            text-indent: -9999px;
+            margin-left: -15px;
+            outline: none;
+        }
+        
+        .box {
+            width: 600px;
+            position: relative;
+        }
+        
+        #video {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <video id="video">
+            <source src="video/video.mp4" />
+        </video>
+        <div class="jp-gui">
+            <div class="jp-interface">
+                <div class="jp-controls-holder">
+
+                    <!--play and pause buttons-->
+                    <a href="javascript:;" class="jp-play" tabindex="1" style="display: block;">play</a>
+                    <a href="javascript:;" class="jp-pause" tabindex="1" style="display: none;">pause</a>
+                    <span class="separator sep-1"></span>
+
+                    <!--progress bar-->
+                    <div class="jp-progress">
+                        <div class="jp-seek-bar" style="width: 100%;">
+                            <div class="jp-play-bar" style="width: 0%;"><span></span></div>
+                        </div>
+                    </div>
+
+                    <!--time notifications-->
+                    <div class="jp-current-time" style="padding: 0 2px 0 5px;">00:00</div>
+                    <span class="time-sep">/</span>
+
+                    <div class="jp-duration" style="padding: 0 5px 0 2px;">00:00</div>
+                    <!--<span class="separator sep-2"></span>-->
+
+
+                    <!--mute / unmute toggle-->
+                    <a href="javascript:;" class="jp-mute" tabindex="1" style="display: block;">mute</a>
+                    <a href="javascript:;" class="jp-unmute" tabindex="1" style="display: none;">unmute</a>
+
+                    <!--volume bar-->
+                    <div class="jp-volume-bar">
+                        <div class="jp-volume-bar-bar" style="width: 100%;">
+                            <div class="jp-volume-bar-value" style="width: 0%;"><span></span></div>
+                        </div>
+                    </div>
+                    <!--<span class="separator sep-2"></span>-->
+
+                    <!--full screen toggle-->
+                    <a href="javascript:;" class="jp-full-screen" tabindex="1" title="full screen">full screen</a>
+                    <!--<a href="javascript:;" class="jp-restore-screen" tabindex="1" title="restore screen"-->
+                    <!--style="display: none;">restore screen</a>-->
+
+                </div>
+                <!--end jp-controls-holder-->
+            </div>
+            <!--end jp-interface-->
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var video = document.getElementById('video');
+    var jp_play = document.getElementsByClassName('jp-play')[0];
+    var jp_pause = document.getElementsByClassName('jp-pause')[0];
+    var jp_mute = document.getElementsByClassName('jp-mute')[0];
+    var jp_unmute = document.getElementsByClassName('jp-unmute')[0];
+    var jp_duration = document.getElementsByClassName('jp-duration')[0];
+    var jp_current_time = document.getElementsByClassName('jp-current-time')[0];
+    var jp_seek_bar = document.getElementsByClassName('jp-seek-bar')[0];
+    var jp_play_bar = document.getElementsByClassName('jp-play-bar')[0];
+    var jp_volume_bar_bar = document.getElementsByClassName('jp-volume-bar-bar')[0];
+    var jp_volume_bar_value = document.getElementsByClassName('jp-volume-bar-value')[0];
+    var jp_full_screen = document.getElementsByClassName('jp-full-screen')[0];
+
+    video.addEventListener('canplay', function() {
+        jp_play.addEventListener('click', function() {
+            video.play();
+            jp_play.style.display = 'none';
+            jp_pause.style.display = 'block';
+        })
+
+        jp_pause.addEventListener('click', function() {
+            video.pause();
+            this.style.display = 'none';
+            jp_play.style.display = 'block';
+        })
+
+        jp_mute.addEventListener('click', function() {
+            video.muted = true;
+            jp_mute.style.display = 'none';
+            jp_unmute.style.display = 'block';
+        })
+
+        jp_unmute.addEventListener('click', function() {
+            video.muted = false;
+            this.style.display = 'none';
+            jp_mute.style.display = 'block';
+        })
+
+        jp_duration.innerText = xxx(video.duration);
+        video.addEventListener('timeupdate', function() {
+            jp_current_time.innerText = xxx(video.currentTime);
+            jp_play_bar.style.width = (video.currentTime / video.duration) * 100 + '%';
+        })
+
+        jp_seek_bar.addEventListener('click', function(e) {
+            e = e || window.event;
+            var width = jp_seek_bar.offsetWidth;
+            var small = e.offsetX;
+            jp_play_bar.style.width = (small / width) * 100 + '%';
+            jp_current_time.innerText = xxx((small / width) * video.duration);
+            video.currentTime = (small / width) * video.duration;
+        })
+
+
+        jp_volume_bar_bar.addEventListener('click', function(e) {
+            setVolume();
+        })
+
+        jp_full_screen.addEventListener('click', function() {
+            video.webkitRequestFullScreen();
+        })
+    })
+
+    function xxx(time) {
+        var min = Math.floor(time / 60);
+        min > 9 ? min : min = '0' + min;
+        var s = Math.floor(time % 60);
+        s > 9 ? s : s = '0' + s;
+        return min + ':' + s;
+    }
+
+    function setVolume(v) {
+        if (document.querySelector('video')) {
+            try {
+                const volumeAudio = document.querySelector('video')
+                volumeAudio.volume = v / 100
+            } catch (error) {
+
+            }
+        }
+    }
+</script>

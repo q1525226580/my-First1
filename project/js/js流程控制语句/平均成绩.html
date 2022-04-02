@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+
+    var num1 = prompt('请第一位同学的输入成绩：') - 0;
+    var num2 = prompt('请第二位同学的输入成绩：') - 0;
+    var num3 = prompt('请第三位同学的输入成绩：') - 0;
+    var num4 = prompt('请第四位同学的输入成绩：') - 0;
+    var num5 = prompt('请第五位同学的输入成绩：') - 0;
+    if (num1 < 0 || num1 > 100) {
+        alert('第一位同学作弊，成绩为0');
+    } else if (num2 < 0 || num2 > 100) {
+        alert('第2位同学作弊，成绩为0');
+    } else if (num3 < 0 || num3 > 100) {
+        alert('第3位同学作弊，成绩为0');
+    } else if (num4 < 0 || num4 > 100) {
+        alert('第4位同学作弊，成绩为0');
+    } else if (num5 < 0 || num5 > 100) {
+        alert('第5位同学作弊，成绩为0');
+
+    } else {
+        var num = (num1 + num2 + num3 + num4 + num5) / 5;
+    }
+
+
+    alert('平均成绩为' + num);
+
+</script>

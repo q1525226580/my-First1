@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            position: relative;
+            left: 800px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 5px auto;
+            box-sizing: border-box;
+            width: 350px;
+            overflow: hidden;
+            background-color: #dedede;
+            border: #dedede solid 1px;
+        }
+
+        li {
+            float: left;
+            width: 90px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>语言</button>
+    <ul hidden>
+        <li>汉语</li>
+        <li>英语</li>
+        <li>日语</li>
+        <li>祖安语</li>
+        <li>无语</li>
+        <li>塔语</li>
+        <li>法语</li>
+        <li>德语</li>
+    </ul>
+    <script>
+        var btn = document.getElementsByTagName('button')[0];
+        var ul = document.getElementsByTagName('ul')[0];
+
+        btn.onclick = function () {
+            window.event ? window.event.cancelBubble = true : e.stopPropagation();
+            ul.style.display = 'block';
+        }
+        document.onclick = function () {
+            ul.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

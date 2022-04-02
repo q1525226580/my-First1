@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="title_"></div>
+  <script>
+    /*
+      通过ajax 来和服务器交互
+      ajax使用时的四个步骤
+      1.创建ajax对象
+      2.连接到服务器
+      3.发送请求
+      4.接收服务器的响应
+    */
+
+    var str = ''
+    // 1.创建ajax对象  借助于XMLHttpRequest() 来创建;
+    // 在老ie中，识别不了XMLHttpRequest，所以会有兼容写法
+    // ActiveXObject();
+    if (window.XMLHttpRequest) {
+      var myajax = new XMLHttpRequest()
+    } else {
+      var myajax = new ActiveXObject('Microsoft.XMLHTTP')
+    }
+
+    // 2.连接到服务器
+    // myajax.open(1,2,3);
+    // 1:连接方式/请求方式【get/post/put/path/delete...】
+    // 2：后台（服务器/接口）地址  url
+    // 3:boolean：这次请求是异步true /同步false
+    myajax.open('get', 'https://api.apiopen.top/todayVideo', true)
+    // myajax.open('get', './demo.json', true)
+
+    // 3.发送请求 send()
+    //  注意：如果需要给后台发送数据，例如：往后台发用户名/密码。
+    // 此时get/和post发送数据的方式是不同的
+    // get：数据是拼接在url地址后面  post：数据方send(数据)
+    // 出现以上不同的原因是因为：数据在通过http的协议在传输时，数据存放的位置是不同的
+    // post请求的数据是在请求体里的。  ？？？ 啥是请求体？？？
+    myajax.send()
+
+    // 4.接收服务器的响应   接收响应时，是通过readystatechange事件来接收的
+    // 在接收服务器响应时，我们要判断好，是否链接了服务器，服务器的响应是否就绪啦。
+    // 有一个叫readyState 的请求状态码。我们可以通过状态码的变化来观察请求进行到哪个地方了
+    // 0:请求未初始化  1:已经建立服务器连接  2:请求已接收  3:服务器请求处理中  4:请求已完成，响应已就绪
+    myajax.onreadystatechange = function () {
+      if (myajax.readyState == 4) {
+        if (myajax.status == 200) {
+          // 接收数据  由于后台响应的数据的类型是不同的，我们在接收数据时，接收方式也不同
+          // json/txt/xml
+          // html[超文本标记语言，展示数据]
+          // xml[标记语言，保存数据/传输数据来用的]：responseXML
+          // 除了xml以外的其他数据类型：responseText
+          // 请求 request         响应 response
+
+          // 数据在前后端之间传递的时候，是以json字符串的形式来传递的，。需要拿到以后转对象，方便后续操作
+
+          // json字符串
+          // console.log(myajax.responseText)
+          // 为了方便后续的操作，需要把json字符串转json对象
+          // var da = JSON.parse(myajax.responseText)
+          var da = eval('(' + myajax.responseText + ')')
+          console.log(da)
+          // console.log(da.data)
+          // console.log(da.list)
+
+          for (var i = 0; i < da.result.length; i++) {
+            if (da.result[i].data.text) {
+              str += '<h1>' + da.result[i].data.text + '</h1>'
+            } else {
+              str += '<h1>' + da.result[i].type + '</h1>'
+            }
+          }
+
+          title_.innerHTML = str
+        }
+      }
+    }
+
+    var person = {
+      name: 'lisi',
+    }
+    // 想后台发送person这个数据时，就需要把它转成json字符串
+    console.log(JSON.stringify(person))
+  </script>
+</body>
+
+</html>

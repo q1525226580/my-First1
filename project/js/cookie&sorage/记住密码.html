@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>记住密码</title>
+</head>
+
+<body>
+    用户名： <input type="text" id="username">
+    <br>
+    密码：<input type="password" id="psd">
+    <br>
+    <input type="checkbox" id="isRemember">记住密码
+    <br>
+    <button onclick="login()">登陆</button>
+
+    <script src="./myCookie.js"></script>
+
+    <script>
+        if (getCookie('isRemember')) {
+            document.getElementById('username').value = getCookie('username');
+            document.getElementById('psd').value = getCookie('psd');
+            document.getElementById('isRemember').checked = getCookie('isRemember');
+        }
+
+        function login() {
+            var user_ = document.getElementById('username').value;
+            var psd_ = document.getElementById('psd').value;
+            var isRemember_ = document.getElementById('isRemember').checked;
+            if (isRemember_) {
+                setCookie('user', user_);
+                setCookie('psd', psd_);
+                setCookie('isRemember', isRemember_);
+            } else {
+                removeCookie('name');
+                removeCookie('psd');
+                removeCookie('isRemember');
+            }
+        }
+    </script>
+</body>
+
+</html>

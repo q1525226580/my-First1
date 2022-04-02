@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        用户名：
+        <input type="text" name="user">
+    </div>
+    <div>
+        密码：
+        <input type="password" name="pwd">
+    </div>
+    <button onclick="reg()">注册</button>
+    <button onclick="login()">登录</button>
+
+    <script>
+        var user = document.getElementById('user');
+        var pwd = document.getElementById('pwd');
+
+        function reg() {
+            var myAjax;
+            if (window.XMLHttpRequest) {
+                myAjax = new XMLHttpRequest()
+            } else {
+                myAjax = new ActiveXObject('Microsoft.XMLHTTP')
+            }
+            myAjax.open('post', 'http://127.0.0.1:3001/user', true)
+            var data = 'sct=ref&user=' + user.value + '&pass=' + pwd.value;
+            myAjax.setRequestHeader(
+                'content-type',
+                'application/x-www-form-urlencoded'
+            )
+            myAjax.send(data)
+            myAjax.onreadystatechange = function () {
+                if (myAjax.readyState == 4) {
+                    if (myAjax.status == 200) {
+                        document.write(typeof myAjax.responseText)
+                        document.write(myAjax.responseText)
+                    }
+                }
+            }
+        }
+
+        function login() {
+            var myajax;
+            if (window.XMLHttpRequest) {
+                myajax = new XMLHttpRequest()
+            } else {
+                myajax = new ActiveXObject('Microsoft.XMLHTTP')
+            }
+            myajax.open('post', 'http://127.0.0.1:3001/user', true)
+            var data = 'sct=ref&user=' + user.value + '&pass=' + pwd.value;
+            myajax.setRequestHeader(
+                'content-type',
+                'application/x-www-form-urlencoded'
+            )
+            myajax.send(data)
+            myajax.onreadystatechange = function () {
+                if (myajax.readyState == 4) {
+                    if (myajax.status == 200) {
+                        document.write(typeof myajax.responseText)
+                        document.write(myajax.responseText)
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

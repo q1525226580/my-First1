@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>今日团购模块 </title>
+    <link rel="stylesheet" href="./shopping.css">
+    <style>
+        .style {
+            background-color: #D51938;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="pruduce">
+        <div class="top"></div>
+        <div class="main">
+            <div class="box">
+                <dl>
+                    <dt><img src="images/pic1.jpg" /></dt>
+                    <dd>[包邮]亮点可移动儿童防身高帖（每个ID限20）</dd>
+
+                </dl>
+                <div class="btprice_1"></div>
+            </div>
+            <div class="box">
+                <dl>
+                    <dt><img src="images/pic2.jpg" /></dt>
+                    <dd>[包邮]韩国泡温泉游泳衣价达玛分教保守纤瘦大胸泳装</dd>
+                </dl>
+                <div class="btprice_2"></div>
+            </div>
+            <div class="box">
+                <dl>
+                    <dt><img src="images/pic3.jpg" /></dt>
+                    <dd>[包邮]贵人鸟运动透气跑鞋P23423(每个限购5件)</dd>
+
+                </dl>
+                <div class="btprice_3"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./jquery-3.6.0.js"></script>
+
+
+    <!-- 当鼠标指针移过商品信息时，
+        使用 addClass( )添加如图中间图片所示的样式，
+        边框及背景颜色值为#D51938，说明文字变为白色；
+        当鼠标指针移出时，
+        使用 removeClass( )恢复初始状态 -->
+
+    <script>
+        $(".box").hover(
+            function () {
+                $(this).addClass("hover")
+            },
+            function () {
+                $(this).removeClass("hover")
+            })
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

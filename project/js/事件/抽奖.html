@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul {
+            margin: 200px auto;
+            width: 360px;
+            height: 360px;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            float: left;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+            background-color: skyblue;
+            list-style: none;
+            margin: 10px;
+        }
+
+        .award {
+            background-color: #666;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul>
+        <li class="award">1元优惠券</li>
+        <li>5元优惠券</li>
+        <li>倒欠888元</li>
+        <li>6元优惠券</li>
+        <li>
+            <button>开始</button>
+            <button>停止</button>
+        </li>
+        <li>3元优惠券</li>
+        <li>谢谢惠顾</li>
+        <li>倒欠666元</li>
+        <li>2元优惠券</li>
+    </ul>
+
+    <script>
+        var li_ = document.getElementsByTagName('li');
+        var btn = document.getElementsByTagName('button');
+        // var award = document.getElementsByClassName('award')[0];
+        // award.style.backgroundColor = '#666';
+        var arr = [0, 1, 2, 5, 8, 7, 6, 3];
+        var timer = null;
+        var num = 0;
+        btn[0].onclick = function () {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                for (var i = 0; i < arr.length; i++) {
+                    li_[arr[i]].className = '';
+                }
+                num++;
+                if (num > arr.length) {
+                    num = 0;
+                }
+                li_[arr[num]].className = 'award';
+            }, 100)
+        }
+        btn[1].onclick = function () {
+            clearInterval(timer);
+        }
+    </script>
+
+</body>
+
+</html>

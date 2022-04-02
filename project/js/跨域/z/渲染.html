@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .list {
+            width: 1200px;
+            list-style: none;
+        }
+
+        .list>li {
+            float: left;
+            padding-bottom: 20px;
+            margin: 20px;
+            width: 250px;
+        }
+
+        .list>li>img {
+            width: 250px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="showData()">渲染</button>
+    <ul class="list">
+    </ul>
+</body>
+
+</html>
+
+
+<script>
+    function showData() {
+        var ajax_ = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+        ajax_.open('get', './xuanran.json');
+        ajax_.send();
+        ajax_.onreadystatechange = function () {
+            if (ajax_.readyState == 4) {
+                if (ajax_.status == 200) {
+                    var data = JSON.parse(ajax_.responseText);
+                    show(data.list);
+                } else {
+                    console.log('请求失败');
+                }
+            }
+        }
+    }
+
+
+    function show(data) {
+        var str = ''
+        for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
+            str += '<li>';
+            str += '<p>' + data[i].name + '</p>';
+            str += '<img src="' + data[i].imgurl + '">';
+            str += '<p>' + data[i].profile + '</p>';
+            str += '</li>';
+        }
+        var ul = document.getElementsByClassName('list')[0];
+        ul.innerHTML = str;
+    }
+</script>

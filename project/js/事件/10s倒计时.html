@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <span></span>
+    <br>
+    <button>开始</button>
+    <button>停止</button>
+    <button>重新开始</button>
+    <script>
+        var span_ = document.getElementsByTagName('span')[0];
+        var btn1_ = document.getElementsByTagName('button')[0];
+        var btn2_ = document.getElementsByTagName('button')[1];
+        var btn3_ = document.getElementsByTagName('button')[2];
+
+        var num = 10;
+        var timer = null;
+        btn1_.onclick = function () {
+            timer = setInterval(function () {
+                span_.style.display = 'block';
+                span_.style.fontSize = '20px';
+                span_.style.color = 'red';
+                span_.innerText = num;
+                num--;
+                if (num == 0) {
+                    clearInterval(timer);
+                }
+            }, 1000)
+        }
+        btn2_.onclick = function () {
+            clearInterval(timer);
+        }
+        btn3_.onclick = function () {
+            clearInterval(timer);
+            num = 10;
+            span_.innerText = 10;
+        }
+    </script>
+</body>
+
+</html>

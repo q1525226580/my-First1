@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 600px;
+            height: 300px;
+            border: 3px solid aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button>+</button>
+    <button>-</button>
+    <div>豆腐干大概十个改革精英集团更好的是否合格好好说风格化风格化和分公司</div>
+
+    <script>
+        var btn = document.getElementsByTagName('button');
+        var div_ = document.getElementsByTagName('div')[0];
+        var num = 16;
+        btn[0].onclick = function () {
+            num++;
+            div_.style.fontSize = num + 'px';
+        }
+        btn[1].onclick = function () {
+            num--;
+            div_.style.fontSize = num + 'px';
+        }
+    </script>
+
+</body>
+
+</html>

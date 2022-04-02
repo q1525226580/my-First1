@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="ww">
+    <button id="btn">搜索</button>
+    <ul id="list"></ul>
+</body>
+
+</html>
+<script>
+    function cb(zhi) {
+        var kk = '';
+        for (var i = 0; i < zhi.result.length; i++) {
+            kk += '<li>' + zhi.result[i][0] + '</li>';
+        }
+        console.log(kk);
+        list.innerHTML = kk;
+    }
+    btn.onclick = function () {
+        var v = ww.value;
+        if (v.trim() == '') return;
+        var script_ = document.createElement('script');
+        script_.src = 'http://suggest.taobao.com/sug?code=utf-8&q=' + v + '&callback=cb';
+        document.documentElement.appendChild(script_);
+        console.log(script_);
+    }
+</script>
